@@ -20,6 +20,7 @@ const App = () => {
     try {
       // 2. Call the backend RAG pipeline
       const data = await sendMessage(userText, history);
+      console.log(data);
 
       // 3. Show the assistant's answer
       setMessages((prev) => [
