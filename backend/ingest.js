@@ -59,7 +59,7 @@ const run = async () => {
     console.log("\n🧠 Generating embeddings and storing in ChromaDB...");
     console.log("⏳ This may take a moment depending on PDF size...");
 
-    const embeddings = getEmbeddings();
+    const embeddings = getEmbeddings(); //just the model config
 
     await Chroma.fromDocuments(chunks, embeddings, {
       collectionName: COLLECTION_NAME,
