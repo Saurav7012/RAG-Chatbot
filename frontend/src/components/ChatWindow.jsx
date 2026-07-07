@@ -3,9 +3,7 @@ import MessageBubble from "./MessageBubble";
 import { BotGlyph, SparkleIcon } from "./icons";
 
 const SUGGESTIONS = [
-  "What is this document about?",
-  "Summarize the key points",
-  "List the main takeaways",
+  "What is this document about?"
 ];
 
 /**

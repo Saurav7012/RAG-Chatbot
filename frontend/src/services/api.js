@@ -1,10 +1,4 @@
-/**
- * Sends a user message + conversation history to the backend RAG pipeline.
- *
- * @param {string} message   - The user's latest question.
- * @param {Array}  history   - Full conversation history: [{ role, content }]
- * @returns {Promise<{ answer: string, sources: string[], history: Array }>}
- */
+
 export const sendMessage = async (message, history = []) => {
   const response = await fetch("http://localhost:5000/api/chat", {
     method: "POST",
