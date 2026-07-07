@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ChatWindow from "./components/ChatWindow";
 import ChatInput from "./components/ChatInput";
+import { LogoMark } from "./components/icons";
 import { sendMessage } from "./services/api";
 
 const App = () => {
@@ -42,24 +43,47 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center p-4">
-      {/* Chat card */}
-      <div className="card bg-base-100 shadow-xl w-full max-w-2xl h-[88vh] flex flex-col">
+    <div className="h-screen bg-base-200 flex flex-col overflow-hidden">
+      {/* Ambient background accents */}
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+        <div className="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" />
+      </div>
 
-        {/* Header */}
-        <div className="card-body p-0 flex flex-col h-full">
-          <div className="bg-primary text-primary-content px-6 py-4 rounded-t-2xl">
-            <h1 className="text-lg font-bold">PDF Chatbot</h1>
-            <p className="text-sm opacity-80">Answers sourced from your document</p>
+      {/* Header */}
+      <header className="relative z-10 shrink-0 border-b border-base-300 bg-base-100/80 backdrop-blur-md">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-3.5 flex items-center gap-3">
+          <div className="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-primary text-primary-content shrink-0">
+            <LogoMark className="w-5 h-5" />
+            <span className="retrieval-pulse absolute inset-0 rounded-2xl" />
           </div>
 
-          {/* Message list */}
-          <ChatWindow messages={messages} isLoading={isLoading} />
+          <div className="min-w-0">
+            <h1 className="font-display font-semibold text-base sm:text-lg leading-tight text-base-content truncate">
+              RAG Chatbot
+            </h1>
+            <p className="text-[11px] sm:text-xs text-base-content/50 leading-tight truncate">
+              Powered by Retrieval-Augmented Generation
+            </p>
+          </div>
 
-          {/* Input bar */}
-          <ChatInput onSend={handleSend} isLoading={isLoading} />
+          <div className="ml-auto flex items-center gap-1.5 pl-3 pr-1 py-1 rounded-full border border-base-300 bg-base-100/60">
+            <span className="relative flex w-2 h-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-success/60 animate-ping" />
+              <span className="relative inline-flex rounded-full w-2 h-2 bg-success" />
+            </span>
+            <span className="text-xs font-medium text-base-content/60 hidden sm:inline">
+              Online
+            </span>
+          </div>
         </div>
-      </div>
+      </header>
+
+      {/* Message list */}
+      <ChatWindow messages={messages} isLoading={isLoading} onSuggestion={handleSend} />
+
+      {/* Input bar */}
+      <ChatInput onSend={handleSend} isLoading={isLoading} />
     </div>
   );
 };
