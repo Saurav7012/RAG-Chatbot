@@ -46,8 +46,8 @@ const App = () => {
     <div className="h-screen bg-base-200 flex flex-col overflow-hidden">
       {/* Ambient background accents */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-secondary/10 blur-3xl" />
+        <div className="absolute -top-32 -left-24 w-96 h-96 rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute top-1/3 -right-24 w-96 h-96 rounded-full bg-secondary/[0.12] blur-3xl" />
       </div>
 
       {/* Header */}

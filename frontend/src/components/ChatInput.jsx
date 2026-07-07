@@ -42,7 +42,7 @@ const ChatInput = ({ onSend, isLoading }) => {
     <div className="relative z-10 shrink-0 bg-gradient-to-t from-base-200 via-base-200 to-transparent pt-3">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-5">
         <div
-          className={`flex items-end gap-2 rounded-3xl border bg-base-100 shadow-lg shadow-black/[0.03] px-3 py-2.5 transition-shadow ${
+          className={`flex items-end gap-2 rounded-3xl border bg-base-100 shadow-lg shadow-black/40 px-3 py-2.5 transition-shadow ${
             isLoading
               ? "border-base-300 opacity-80"
               : "border-base-300 focus-within:border-primary/50 focus-within:ring-4 focus-within:ring-primary/10"
